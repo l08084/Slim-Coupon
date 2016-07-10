@@ -16,9 +16,10 @@ $app->get('/goodby/{name}', function (Request $request, Response $response) {
     $response->getBody()->write("goodby!!!, $name");
     return $response;
 });
-$app->get('/coupons/{name}', function (Request $request, Response $response) {
-    $name = $request->getAttribute('name');
-    $response->getBody()->write("coupon!!!, $name");
+$app->get('/coupons/', function (Request $request, Response $response) {
+    $data = array('name' => 'Bob', 'age' => 40);
+    $response->withHeader('Content-type', 'application/json');
+    $response->WithJson($data);
     return $response;
 });
 $app->run();
