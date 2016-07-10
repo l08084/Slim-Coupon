@@ -16,6 +16,9 @@ $app->get('/goodby/{name}', function (Request $request, Response $response) {
     $response->getBody()->write("goodby!!!, $name");
     return $response;
 });
-
-
+$app->get('/coupons/{name}', function (Request $request, Response $response) {
+    $name = $request->getAttribute('name');
+    $response->getBody()->write("coupon!!!, $name");
+    return $response;
+});
 $app->run();
